@@ -37,4 +37,18 @@ module.exports = class UsuarioController {
             res.status(500).json({mensagem: error})   
         }
     }
+
+    static async logar(req, res){
+        const {login, senha} = req.body
+
+        if(!login){
+            res.status(422).json({mensagem: "Login obrigatório!"})
+            return
+        }
+
+        if(!senha){
+            res.status(422).json({mensagem: "Senha obrigatória!"})
+            return   
+        }
+    }
 }
