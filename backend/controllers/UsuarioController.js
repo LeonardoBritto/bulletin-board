@@ -35,7 +35,7 @@ module.exports = class UsuarioController {
 
         try {
             await Usuario.create(usuario)      
-            res.status(201).json({mensagem: 'Usuário Cadastrado com sucesso'})
+            res.status(201).json({mensagem: 'Usuário cadastrado com sucesso'})
         } catch (error) {
             res.status(500).json({mensagem: error})   
         }
