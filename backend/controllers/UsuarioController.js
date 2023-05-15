@@ -1,6 +1,8 @@
 const Usuario = require('../models/Usuario')
 const bcrypt = require('bcrypt')
 
+const criarTokenUsuario = require('../helpers/criar-token-usuario')
+    
 module.exports = class UsuarioController {
     static async salvar(req, res){
         const {login, senha} = req.body
@@ -26,6 +28,7 @@ module.exports = class UsuarioController {
         const senhaHash = await bcrypt.hash(senha, salt)
 
         const usuario = {
+            codigo: 0,
             login,
             senha: senhaHash
         } 
@@ -50,5 +53,21 @@ module.exports = class UsuarioController {
             res.status(422).json({mensagem: "Senha obrigatória!"})
             return   
         }
+
+        const usuario = await Usuario.findOne({where: {login: login}})
+
+        if(!usuario){
+            res.status(422).json({mensagem: "Esse usuário não foi cadastrado!"})
+            return         
+        }
+
+        const checaSenha = await bcrypt.compare(senha, usuario.senha)
+
+        if(!checaSenha){
+            res.status(422).json({mensagem: "Senha incorreta!"})
+            return    
+        }
+
+        await criarTokenUsuario(usuario, req, res)
     }
 }

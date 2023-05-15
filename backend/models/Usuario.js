@@ -12,7 +12,7 @@ const Usuario = db.define('Usuario', {
         allowNull: false,
     },
     senha: {
-        type: DataTypes.STRING(20),
+        type: DataTypes.STRING,
         allowNull: false,
     },
 }, {freezeTableName: true, timestamps: false})
