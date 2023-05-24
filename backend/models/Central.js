@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize')
 const db = require('./Conexao')
+const Cliente = require('./Cliente')
 
 const Central = db.define('Central', {
     codigo: {
@@ -110,5 +111,7 @@ const Central = db.define('Central', {
         type: DataTypes.TIME
     }    
 }, {freezeTableName: true, timestamps: false})
+
+Central.belongsTo(Cliente, {constraints: true, foreignKey: 'cnpjcliente'})
 
 module.exports = Central

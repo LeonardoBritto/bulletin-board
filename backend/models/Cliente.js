@@ -2,13 +2,9 @@ const { DataTypes } = require('sequelize')
 const db = require('./Conexao')
 
 const Cliente = db.define('Cliente', {
-    codigo: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-    },
     cnpj: {
-        type: DataTypes.STRING(18),
+        type: DataTypes.STRING(14),
+        primaryKey: true,
         allowNull: false,
     },
     nome: {
