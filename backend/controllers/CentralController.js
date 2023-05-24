@@ -29,10 +29,15 @@ module.exports = class CentralController {
             const centralObj = {
                 codigo: 0, data: moment().format('YYYY-MM-DD HH:mm:ss'), versaoftp, versaolocal, 
                 serviceguardian, central, centralservice, mineradora, centralmineradora, 
-                centralautomatizado, centralmanutencao, cnpjcliente
+                centralautomatizado, centralmanutencao, sajlistaintaguardandociencia, 
+                sajlistaintprazoiniciado, sajlistaintrecebidasportal, sajinttomarciencia,
+                sajintobterteor, sajintleitura, sajlistacitaguardandociencia, sajlistacitprazoiniciado,
+                sajlistacitrecebidasportal, sajcittomarciencia, sajcitobterteor, sajcitleitura,
+                pjelistaavistospendentes, pjeinttomarciencia, pjecitobterteor, pjeoutrosavisostomarciencia,
+                pjecapturaprocessos, pjeoutrosavisosobterteor, pjecapturaprocessos, horaintercomunicacao1, 
+                horaintercomunicacao2, horaintercomunicacao3, horaintercomunicacao4, cnpjcliente
             } 
-        }
-                                                  
+        }                                                  
 
         try {
             await Central.create(centralObj)
