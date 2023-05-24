@@ -1,7 +1,8 @@
 const { Sequelize } = require('sequelize')
 const sequelize = new Sequelize('painel', 'root', 'root', {
     host: 'localhost',
-    dialect: 'mysql'
+    dialect: 'mysql',
+    timezone: 'America/Sao_Paulo'
 })
 
 try {
