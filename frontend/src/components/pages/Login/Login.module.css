@@ -1,0 +1,10 @@
+.gradientCustom {
+    /* fallback for old browsers */
+    background: #e67e22;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(230, 126, 34,1.0), rgba(37, 117, 252, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(230, 126, 34,1.0), rgba(37, 117, 252, 1))
+}
