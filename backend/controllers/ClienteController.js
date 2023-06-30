@@ -1,8 +1,13 @@
 const Cliente = require('../models/Cliente')
 
+const bcrypt = require('bcrypt')
+
+//Helpers
+const criarClienteTokenApi = require('../helpers/criar-token-cliente-api')
+
 module.exports = class ClienteController {
     static async inserir(req, res){
-        const {cnpj, nome} = req.body
+        const {cnpj, nome, usuario, senha, ipacesso} = req.body
 
         if(!cnpj){
             res.status(422).json({mensagem: "CNPJ obrigatório!"})
@@ -26,10 +31,16 @@ module.exports = class ClienteController {
             return    
         }
 
+        const salt = await bcrypt.genSalt(10)
+        const senhaHash= await bcrypt.hash(senha, salt)
+
         const cliente = {
             codigo: 0,
             cnpj,
-            nome
+            nome, 
+            usuario, 
+            senha: senhaHash, 
+            ipacesso
         } 
 
         try {
@@ -41,12 +52,28 @@ module.exports = class ClienteController {
     }
 
     static async autenticar(req, res){
-        const {cnpj, email, senha} = req.body
+        const {cnpj, usuario, senha} = req.body
         
-        if(!cnpj || !email || !senha){
-            res.status(422).json({mensagem: "Dados incompletos para autenticação!"})
-            return
+        if(!cnpj || !usuario || !senha){
+            return res.status(422).json({mensagem: "Dados incompletos para autenticação!"})            
         }
 
+        const cliente = await Cliente.findOne({where: {cnpj: cnpj}})
+
+        if(!cliente){
+            return res.status(422).json({mensagem: "Cliente não consta na base de dados!"})
+        }
+
+        if(usuario != cliente.usuario){
+            return res.status(422).json({mensagem: "Usuário incorreto!"})   
+        }
+
+        const checarSenha = await bcrypt.compare(senha, cliente.senha)
+
+        if(!checarSenha){
+            return res.status(422).json({mensagem: "Senha incorreta!"})  
+        }
+
+        await criarClienteTokenApi(cliente, req, res)
     }
 }

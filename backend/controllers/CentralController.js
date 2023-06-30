@@ -36,7 +36,7 @@ module.exports = class CentralController {
             pjeoutrosavisosobterteor, pjecapturaprocessos, horaintercomunicacao1, 
             horaintercomunicacao2, horaintercomunicacao3, horaintercomunicacao4, cnpjcliente
         } */
-        console.log('Versao FTP: ', versaoftp)
+       /* console.log('Versao FTP: ', versaoftp)
         console.log('Versao Local: ', versaolocal)
         console.log('Service Guardian: ', serviceguardian)
         console.log('Central: ', central)
@@ -44,7 +44,9 @@ module.exports = class CentralController {
         console.log('Mineradora: ', mineradora)
         console.log('Central Mineradora: ', centralmineradora)
         console.log('Central Automatizado: ', centralautomatizado)
-        console.log('Central Manutencao: ', centralmanutencao)
+        console.log('Central Manutencao: ', centralmanutencao)*/
+        console.log('IP: ', req.ip)
+        console.log('User: ', req.user)
         /*try {
             await Central.create(centralObj)
             res.status(201).json({mensagem: 'Aviso cadastrado com sucesso'})
