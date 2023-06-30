@@ -34,11 +34,19 @@ module.exports = class ClienteController {
 
         try {
             await Cliente.create(cliente)
-            res.status(201).json({mensagem: 'Cliente cadastrado com sucesso'})    
+            res.status(201).json({mensagem: 'Cliente cadastrado com sucesso!'})    
         } catch (error) {
             res.status(500).json({mensagem: error})     
+        }        
+    }
+
+    static async autenticar(req, res){
+        const {cnpj, email, senha} = req.body
+        
+        if(!cnpj || !email || !senha){
+            res.status(422).json({mensagem: "Dados incompletos para autenticação!"})
+            return
         }
-        
-        
+
     }
 }

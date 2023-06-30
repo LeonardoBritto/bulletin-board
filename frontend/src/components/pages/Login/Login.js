@@ -1,19 +1,18 @@
 import styles from './Login.module.css'
 import { useContext, useState } from 'react'
+import { Context } from '../../../context/UserContext'
 
 function Login() {
     const [usuario, setUsuario] = useState({})
-    //const { login } = useContext(Context)
+    const {login} = useContext(Context)
 
     function handleChange(e) {
         setUsuario({ ...usuario, [e.target.name]: e.target.value })
-        console.log('ola' + usuario)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(usuario)
-        //login(usuario)
+        login(usuario)
     }
 
     return (
@@ -25,7 +24,7 @@ function Login() {
                             <div class="card-body p-5 text-center">
                                 <div class="mb-md-5 mt-md-4 pb-5">
                                     <form onSubmit={handleSubmit}>
-                                        <h2 class="fw-bold mb-2 text-uppercase">Login - AVISOS</h2>
+                                        <h2 class="fw-bold mb-2 text-uppercase">CENTRAL DE AVISOS</h2>
                                         <br></br>
                                         <div class="form-outline form-white mb-4">
                                             <input type="text" id="typeEmailX" class="form-control form-control-lg" placeholder='Login' name='login' onChange={handleChange}/>

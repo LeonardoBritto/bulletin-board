@@ -17,7 +17,7 @@ module.exports = class CentralController {
         pjelistaavistospendentes, pjeinttomarciencia, pjecitobterteor, pjeoutrosavisostomarciencia,
         pjeoutrosavisosobterteor, pjecapturaprocessos, horaintercomunicacao1, 
         horaintercomunicacao2, horaintercomunicacao3, horaintercomunicacao4, cnpjcliente} = req.body
-
+        /*
         let codigo = 0
 
         const existe = await Central.findOne({where: {cnpjcliente: cnpjcliente}})
@@ -35,13 +35,22 @@ module.exports = class CentralController {
             pjelistaavistospendentes, pjeinttomarciencia, pjecitobterteor, pjeoutrosavisostomarciencia,
             pjeoutrosavisosobterteor, pjecapturaprocessos, horaintercomunicacao1, 
             horaintercomunicacao2, horaintercomunicacao3, horaintercomunicacao4, cnpjcliente
-        } 
-        console.log(centralObj.data)
-        try {
+        } */
+        console.log('Versao FTP: ', versaoftp)
+        console.log('Versao Local: ', versaolocal)
+        console.log('Service Guardian: ', serviceguardian)
+        console.log('Central: ', central)
+        console.log('Central Service: ', centralservice)
+        console.log('Mineradora: ', mineradora)
+        console.log('Central Mineradora: ', centralmineradora)
+        console.log('Central Automatizado: ', centralautomatizado)
+        console.log('Central Manutencao: ', centralmanutencao)
+        /*try {
             await Central.create(centralObj)
             res.status(201).json({mensagem: 'Aviso cadastrado com sucesso'})
         } catch (error) {
             res.status(500).json({mensagem: error})    
-        }
+        }*/
+        res.status(201).json({mensagem: 'Aviso cadastrado com sucesso'})
     }
 }
