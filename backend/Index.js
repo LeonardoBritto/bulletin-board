@@ -20,4 +20,4 @@ app.use('/', (req, res) => {
     res.status(200).json({mensagem: 'Sucesso - API em Node.js'})
 })
 
-conexao.sync().then(app.listen(port)).catch((err) => console.log(err))
+conexao.sync({force: true}).then(app.listen(port)).catch((err) => console.log(err))

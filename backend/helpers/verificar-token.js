@@ -6,7 +6,7 @@ const verificarToken = (req, res, next) => {
         return res.status(401).json({message: "Acesso Negado - Header Authorization Vazio!"})    
     }
 
-    const token = getToken(req)
+    const token = pegarToken(req)
 
     if(!token){
         return res.status(401).json({message: "Acesso Negado - Token Vazio!"})

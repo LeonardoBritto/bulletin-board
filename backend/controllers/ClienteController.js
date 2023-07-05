@@ -6,6 +6,32 @@ const bcrypt = require('bcrypt')
 const criarClienteTokenApi = require('../helpers/criar-token-cliente-api')
 
 module.exports = class ClienteController {
+    static async autenticar(req, res){
+        const {cnpj, usuario, senha} = req.body
+        
+        if(!cnpj || !usuario || !senha){
+            return res.status(422).json({mensagem: "Dados incompletos para autenticação!"})            
+        }
+
+        const cliente = await Cliente.findOne({where: {cnpj: cnpj}})
+
+        if(!cliente){
+            return res.status(422).json({mensagem: "Cliente não consta na base de dados!"})
+        }
+
+        if(usuario != cliente.usuario){
+            return res.status(422).json({mensagem: "Usuário incorreto!"})   
+        }
+
+        const checarSenha = await bcrypt.compare(senha, cliente.senha)
+
+        if(!checarSenha){
+            return res.status(422).json({mensagem: "Senha incorreta!"})  
+        }
+
+        await criarClienteTokenApi(cliente, req, res)
+    }
+
     static async inserir(req, res){
         const {cnpj, nome, usuario, senha, ipacesso} = req.body
 
@@ -49,31 +75,5 @@ module.exports = class ClienteController {
         } catch (error) {
             res.status(500).json({mensagem: error})     
         }        
-    }
-
-    static async autenticar(req, res){
-        const {cnpj, usuario, senha} = req.body
-        
-        if(!cnpj || !usuario || !senha){
-            return res.status(422).json({mensagem: "Dados incompletos para autenticação!"})            
-        }
-
-        const cliente = await Cliente.findOne({where: {cnpj: cnpj}})
-
-        if(!cliente){
-            return res.status(422).json({mensagem: "Cliente não consta na base de dados!"})
-        }
-
-        if(usuario != cliente.usuario){
-            return res.status(422).json({mensagem: "Usuário incorreto!"})   
-        }
-
-        const checarSenha = await bcrypt.compare(senha, cliente.senha)
-
-        if(!checarSenha){
-            return res.status(422).json({mensagem: "Senha incorreta!"})  
-        }
-
-        await criarClienteTokenApi(cliente, req, res)
     }
 }

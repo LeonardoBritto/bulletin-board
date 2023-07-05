@@ -9,15 +9,20 @@ module.exports = class CentralController {
     }
 
     static async inserir(req, res){
-        const {versaoftp, versaolocal, serviceguardian, central, centralservice, 
-        mineradora, centralmineradora, centralautomatizado, centralmanutencao, sajlistaintaguardandociencia, 
-        sajlistaintprazoiniciado, sajlistaintrecebidasportal, sajinttomarciencia,
-        sajintobterteor, sajintleitura, sajlistacitaguardandociencia, sajlistacitprazoiniciado,
-        sajlistacitrecebidasportal, sajcittomarciencia, sajcitobterteor, sajcitleitura,
-        pjelistaavistospendentes, pjeinttomarciencia, pjecitobterteor, pjeoutrosavisostomarciencia,
-        pjeoutrosavisosobterteor, pjecapturaprocessos, horaintercomunicacao1, 
+        const {versaoftp, versaolocal, serviceguardian, central, centralservices, 
+        mineradora, centralmineradora, centralautomatizado, centralmanutencao,
+        solicitalistaintimacoesaguardandociencia, solicitalistaintimacaoautoconfirmada, 
+        solicitalistaintimacoesrecebidas, solicitarintimacaoaguardandocienciaato,
+        solicitarintimacaoaguardandoteor, confirmacaoleituraintimacaoautoconfirmado, 
+        solicitalistacitacoesaguardandociencia, solicitalistacitacoesautoconfirmada, 
+        solicitalistacitacoesrecebidas, solicitarcitacaoaguardandocienciaato, 
+        solicitarcitacaoaguardandoteor, confirmacaoleituracitacaoautoconfirmado, 
+        consultaravisospendentespje, solicitarintimacaoaguardandocienciaatopje, 
+        solicitarintimacaoaguardandoteorpje, solicitarcitacaoaguardandocienciaatopje, 
+        solicitarcitacaoaguardandoteorpje, solicitaroutroaguardandocienciaatopje, 
+        solicitaroutroaguardandoteorpje, consultarprocessopje, horaintercomunicacao1, 
         horaintercomunicacao2, horaintercomunicacao3, horaintercomunicacao4, cnpjcliente} = req.body
-        /*
+        
         let codigo = 0
 
         const existe = await Central.findOne({where: {cnpjcliente: cnpjcliente}})
@@ -27,32 +32,42 @@ module.exports = class CentralController {
         
         const centralObj = {
             codigo, data: moment().format('YYYY-MM-DD HH:mm:ss'), versaoftp, versaolocal, 
+            serviceguardian, central, centralservices, mineradora, centralmineradora, 
+            centralautomatizado, centralmanutencao, solicitalistaintimacoesaguardandociencia,
+            solicitalistaintimacaoautoconfirmada, solicitalistaintimacoesrecebidas,
+            solicitarintimacaoaguardandocienciaato, solicitarintimacaoaguardandoteor,
+            confirmacaoleituraintimacaoautoconfirmado, solicitalistacitacoesaguardandociencia,
+            solicitalistacitacoesautoconfirmada, solicitalistacitacoesrecebidas,
+            solicitarcitacaoaguardandocienciaato, solicitarcitacaoaguardandoteor,
+            confirmacaoleituracitacaoautoconfirmado, consultaravisospendentespje,
+            solicitarintimacaoaguardandocienciaatopje, solicitarintimacaoaguardandoteorpje,
+            solicitarcitacaoaguardandocienciaatopje, solicitarcitacaoaguardandoteorpje,
+            solicitaroutroaguardandocienciaatopje, solicitaroutroaguardandoteorpje, 
+            consultarprocessopje, horaintercomunicacao1, horaintercomunicacao2, 
+            horaintercomunicacao3, horaintercomunicacao4, cnpjcliente
+        } 
+
+        /*const centralObj = {
+            codigo: 0, data: moment().format('YYYY-MM-DD HH:mm:ss'), versaoftp, versaolocal, 
             serviceguardian, central, centralservice, mineradora, centralmineradora, 
-            centralautomatizado, centralmanutencao, sajlistaintaguardandociencia, 
-            sajlistaintprazoiniciado, sajlistaintrecebidasportal, sajinttomarciencia,
-            sajintobterteor, sajintleitura, sajlistacitaguardandociencia, sajlistacitprazoiniciado,
-            sajlistacitrecebidasportal, sajcittomarciencia, sajcitobterteor, sajcitleitura,
-            pjelistaavistospendentes, pjeinttomarciencia, pjecitobterteor, pjeoutrosavisostomarciencia,
-            pjeoutrosavisosobterteor, pjecapturaprocessos, horaintercomunicacao1, 
-            horaintercomunicacao2, horaintercomunicacao3, horaintercomunicacao4, cnpjcliente
-        } */
-       /* console.log('Versao FTP: ', versaoftp)
+            centralautomatizado, centralmanutencao
+        }*/
+
+        console.log('Versao FTP: ', versaoftp)
         console.log('Versao Local: ', versaolocal)
         console.log('Service Guardian: ', serviceguardian)
         console.log('Central: ', central)
-        console.log('Central Service: ', centralservice)
+        console.log('Central Services: ', centralservices)
         console.log('Mineradora: ', mineradora)
         console.log('Central Mineradora: ', centralmineradora)
         console.log('Central Automatizado: ', centralautomatizado)
-        console.log('Central Manutencao: ', centralmanutencao)*/
+        console.log('Central Manutencao: ', centralmanutencao)
         console.log('IP: ', req.ip)
-        console.log('User: ', req.user)
-        /*try {
+        try {
             await Central.create(centralObj)
             res.status(201).json({mensagem: 'Aviso cadastrado com sucesso'})
         } catch (error) {
             res.status(500).json({mensagem: error})    
-        }*/
-        res.status(201).json({mensagem: 'Aviso cadastrado com sucesso'})
+        }
     }
 }

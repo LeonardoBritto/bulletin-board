@@ -38,64 +38,64 @@ const Central = db.define('Central', {
     centralmanutencao: {
         type: DataTypes.STRING(15)
     },
-    sajlistaintaguardandociencia: {
+    solicitalistaintimacoesaguardandociencia: {
         type: DataTypes.STRING(15)
     },
-    sajlistaintprazoiniciado: {
+    solicitalistaintimacaoautoconfirmada: {
         type: DataTypes.STRING(15)
     },
-    sajlistaintrecebidasportal: {
+    solicitalistaintimacoesrecebidas: {
         type: DataTypes.STRING(15)
     },
-    sajinttomarciencia: {
+    solicitarintimacaoaguardandocienciaato: {
         type: DataTypes.STRING(15)
     },
-    sajintobterteor: {
+    solicitarintimacaoaguardandoteor: {
         type: DataTypes.STRING(15)
     },
-    sajintleitura: {
+    confirmacaoleituraintimacaoautoconfirmado: {
         type: DataTypes.STRING(15)
     },
-    sajlistacitaguardandociencia: {
+    solicitalistacitacoesaguardandociencia: {
         type: DataTypes.STRING(15)
     },
-    sajlistacitprazoiniciado: {
+    solicitalistacitacoesautoconfirmada: {
         type: DataTypes.STRING(15)
     },
-    sajlistacitrecebidasportal: {
+    solicitalistacitacoesrecebidas: {
         type: DataTypes.STRING(15)
     },
-    sajcittomarciencia: {
+    solicitarcitacaoaguardandocienciaato: {
         type: DataTypes.STRING(15)
     },
-    sajcitobterteor: {
+    solicitarcitacaoaguardandoteor: {
         type: DataTypes.STRING(15)
     },
-    sajcitleitura: {
+    confirmacaoleituracitacaoautoconfirmado: {
         type: DataTypes.STRING(15)
     },
-    pjelistaavistospendentes: {
+    consultaravisospendentespje: {
         type: DataTypes.STRING(15)
     },
-    pjeinttomarciencia: {
+    solicitarintimacaoaguardandocienciaatopje: {
         type: DataTypes.STRING(15)
     },
-    pjeintobterteor: {
+    solicitarintimacaoaguardandoteorpje: {
         type: DataTypes.STRING(15)
     },
-    pjecittomarciencia: {
+    solicitarcitacaoaguardandocienciaatopje: {
         type: DataTypes.STRING(15)
     },
-    pjecitobterteor: {
+    solicitarcitacaoaguardandoteorpje: {
         type: DataTypes.STRING(15)
     },
-    pjeoutrosavisostomarciencia: {
+    solicitaroutroaguardandocienciaatopje: {
         type: DataTypes.STRING(15)
     },
-    pjeoutrosavisosobterteor: {
+    solicitaroutroaguardandoteorpje: {
         type: DataTypes.STRING(15)
     },
-    pjecapturaprocessos: {
+    consultarprocessopje: {
         type: DataTypes.STRING(15)
     },
     horaintercomunicacao1: {

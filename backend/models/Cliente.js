@@ -10,6 +10,7 @@ const Cliente = db.define('Cliente', {
     cnpj: {
         type: DataTypes.STRING(14),
         allowNull: false,
+        unique: true,
     },
     nome: {
         type: DataTypes.STRING(60),
