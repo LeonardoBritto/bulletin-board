@@ -11,6 +11,7 @@ const criarClienteTokenApi = async(cliente, req, res) => {
         token: token,
         codCliente: cliente.codigo,
     })
+    console.log('Token: ', token)
 }
 
 module.exports = criarClienteTokenApi

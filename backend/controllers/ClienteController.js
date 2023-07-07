@@ -61,7 +61,6 @@ module.exports = class ClienteController {
         const senhaHash= await bcrypt.hash(senha, salt)
 
         const cliente = {
-            codigo: 0,
             cnpj,
             nome, 
             usuario, 

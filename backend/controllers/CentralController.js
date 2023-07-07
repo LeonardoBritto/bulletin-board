@@ -25,10 +25,10 @@ module.exports = class CentralController {
         
         let codigo = 0
 
-        const existe = await Central.findOne({where: {cnpjcliente: cnpjcliente}})
+        //const existe = await Central.findOne({where: {cnpjcliente: cnpjcliente}})
 
-        if(existe)
-            codigo = existe.codigo
+        //if(existe)
+            //codigo = existe.codigo
         
         const centralObj = {
             codigo, data: moment().format('YYYY-MM-DD HH:mm:ss'), versaoftp, versaolocal, 
@@ -51,8 +51,7 @@ module.exports = class CentralController {
             codigo: 0, data: moment().format('YYYY-MM-DD HH:mm:ss'), versaoftp, versaolocal, 
             serviceguardian, central, centralservice, mineradora, centralmineradora, 
             centralautomatizado, centralmanutencao
-        }*/
-
+        }
         console.log('Versao FTP: ', versaoftp)
         console.log('Versao Local: ', versaolocal)
         console.log('Service Guardian: ', serviceguardian)
@@ -62,12 +61,14 @@ module.exports = class CentralController {
         console.log('Central Mineradora: ', centralmineradora)
         console.log('Central Automatizado: ', centralautomatizado)
         console.log('Central Manutencao: ', centralmanutencao)
-        console.log('IP: ', req.ip)
+        console.log('IP: ', req.ip)*/
+
         try {
             await Central.create(centralObj)
             res.status(201).json({mensagem: 'Aviso cadastrado com sucesso'})
         } catch (error) {
-            res.status(500).json({mensagem: error})    
+            res.status(500).json({mensagem: error}) 
+            console.log(error)   
         }
     }
 }

@@ -99,16 +99,16 @@ const Central = db.define('Central', {
         type: DataTypes.STRING(15)
     },
     horaintercomunicacao1: {
-        type: DataTypes.TIME
+        type: DataTypes.STRING(5)
     },
     horaintercomunicacao2: {
-        type: DataTypes.TIME
+        type: DataTypes.STRING(5)
     },
     horaintercomunicacao3: {
-        type: DataTypes.TIME
+        type: DataTypes.STRING(5)
     },
     horaintercomunicacao4: {
-        type: DataTypes.TIME
+        type: DataTypes.STRING(5)
     }    
 }, {freezeTableName: true, timestamps: false})
 
