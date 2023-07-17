@@ -47,24 +47,12 @@ module.exports = class CentralController {
             horaintercomunicacao3, horaintercomunicacao4, cnpjcliente
         } 
 
-        /*const centralObj = {
-            codigo: 0, data: moment().format('YYYY-MM-DD HH:mm:ss'), versaoftp, versaolocal, 
-            serviceguardian, central, centralservice, mineradora, centralmineradora, 
-            centralautomatizado, centralmanutencao
-        }
-        console.log('Versao FTP: ', versaoftp)
-        console.log('Versao Local: ', versaolocal)
-        console.log('Service Guardian: ', serviceguardian)
-        console.log('Central: ', central)
-        console.log('Central Services: ', centralservices)
-        console.log('Mineradora: ', mineradora)
-        console.log('Central Mineradora: ', centralmineradora)
-        console.log('Central Automatizado: ', centralautomatizado)
-        console.log('Central Manutencao: ', centralmanutencao)
-        console.log('IP: ', req.ip)*/
-
         try {
-            await Central.create(centralObj)
+            //if(codigo != 0)
+                //await Central.update(centralObj, {where: {codigo: codigo}})
+            //else
+                await Central.create(centralObj)
+
             res.status(201).json({mensagem: 'Aviso cadastrado com sucesso'})
         } catch (error) {
             res.status(500).json({mensagem: error}) 

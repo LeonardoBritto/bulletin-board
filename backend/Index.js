@@ -1,6 +1,9 @@
 const express = require('express')
-const cors = require('cors')
+const cors = require('cors') // Configurar após desenvolvimento do FrontEnd
 const port = process.env.PORT || 5000 
+const logger = require('pino')()
+
+logger.info('Oi eu sou Goku')
 
 const app = express()
 
@@ -20,4 +23,4 @@ app.use('/', (req, res) => {
     res.status(200).json({mensagem: 'Sucesso - API em Node.js'})
 })
 
-conexao.sync().then(app.listen(port)).catch((err) => console.log(err))
+conexao.sync({force: true}).then(app.listen(port)).catch((err) => console.log(err))

@@ -18,6 +18,9 @@
     "moment": "^2.29.4",
     "mysql2": "^3.3.0",
     "nodemon": "^2.0.22",
+    "pino": "^8.14.1",
+    "pino-http": "^8.3.3",
+    "pino-pretty": "^10.0.1",
     "sequelize": "^6.31.1"
   }
 }

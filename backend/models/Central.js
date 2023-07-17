@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize')
 const db = require('./Conexao')
 const Cliente = require('./Cliente')
 
-const Central = db.define('Central', {
+const Central = db.define('Central_intercomunicacao', {
     codigo: {
         type: DataTypes.INTEGER,
         primaryKey: true,
